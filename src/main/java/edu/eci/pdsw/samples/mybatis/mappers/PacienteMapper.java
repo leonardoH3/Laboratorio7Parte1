@@ -32,20 +32,18 @@ public interface PacienteMapper {
      * @param tipoid tipo de id
      * @return 
      */
-    public Paciente loadPacienteById(int id,String tipoid);
+    public Paciente loadPacienteById(@Param("idpaciente")int id,@Param("tipoidpaciente") String tipoid);
 
     /**
      * Insertar un nuevo paciente
      * @param p el objeto paciente
      */
-    public void insertPaciente(Paciente p);
-    
+    public void insertPaciente(@Param("paciente")Paciente p);
     /**
      * Insertar la consulta asociada a un paciente
      * @param con la nueva consulta
      * @param id el identificador del PACIENTE
      * @param tipoid el tipo de ID del PACIENTE
      */
-    public void insertConsulta(Consulta con,int id,String tipoid);
-        
+    public void insterConsulta(@Param("consulta")Consulta con,@Param("idPacienteC")int id,@Param("TipoIdPacienteC")String tipoid);    
 }
