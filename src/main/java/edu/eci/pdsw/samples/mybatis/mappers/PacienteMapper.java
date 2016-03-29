@@ -45,5 +45,17 @@ public interface PacienteMapper {
      * @param id el identificador del PACIENTE
      * @param tipoid el tipo de ID del PACIENTE
      */
-    public void insterConsulta(@Param("consulta")Consulta con,@Param("idPacienteC")int id,@Param("TipoIdPacienteC")String tipoid);    
+    public void insterConsulta(@Param("consulta")Consulta con,@Param("idPacienteC")int id,@Param("TipoIdPacienteC")String tipoid); 
+    /**
+     * registrar un nuevo paciente y sus consultas
+     * @param p el objeto paciente
+     */
+    public void registrarNuevoPaciente(@Param("paciente")Paciente p);
+        /*{insertPaciente(pac);
+        for(Consulta c:pac.getConsultas()){
+            insterConsulta(c,pac.getId(),pac.getTipo_id());
+        }
+        }
+        */
+    
 }

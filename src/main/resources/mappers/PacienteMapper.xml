@@ -22,5 +22,11 @@
 <select id='loadPaciente' parameterType='map' resultMap='PacienteResult'>
     select pac.id, pac.tipo_id, pac.nombre, pac.fecha_nacimiento, con.idCONSULTAS AS Consulta_id, con.fecha_y_hora AS Consulta_fecha_y_hora, con.resumen AS Consulta_resumen from PACIENTES as pac left join CONSULTAS as con on con.PACIENTES_id=pac.id and con.PACIENTES_tipo_id=pac.tipo_id 
     where pac.id=#{idpaciente} and pac.tipo_id=#{tipoidpaciente}
-</select>                                                                                               
+</select>        
+<insert id="insertPaciente">
+    insert into PACIENTES VALUES(#{paciente.id},#{paciente.tipo_id},#{paciente.nombre},#{paciente.fechaNaciemiento})
+</insert>
+<insert id="insertConsulta" useGeneratedKeys="true" keyProperty="consulta.id">
+    insert into CONSULTAS VALUES(#{consulta.fechayHora},#{consulta.resumen},#{idPacienteC},#{TipoIdPacienteC})
+</insert>                                                                                         
 </mapper>
